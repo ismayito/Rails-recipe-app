@@ -6,5 +6,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+   root "foods#index"
+
+  # Defines the application routes of the rails-recipe-app 
+   resources :foods, only: [:index,:create, :destroy]
+   resources :recipes, only: [:index, :show,:update,:destroy]
+   resources  :recipe_foods
+   get 'public_recipes', to: 'recipes#public_recipes'
+   get  'general_shopping_list', to: 'recipes#general_shopping_list'
 end
