@@ -3,11 +3,27 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: recipe_path(@recipe)) }
+      format.js # Assuming you have a toggle_public.js.erb file for AJAX response
+    end
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-    flash[:notice] = 'Recipe Item successfully deleted.'
-    redirect_to recipes_path
+    if @recipe.public?
+      authorize! :delete, @recipe
+      @recipe.destroy
+      flash[:notice] = 'Public recipe Item successfully deleted.'
+      redirect_to public_recipes_path
+    else
+      @recipe.destroy
+      flash[:notice] = 'Recipe Item successfully deleted.'
+      redirect_to recipes_path
+    end
   end
 
   def show

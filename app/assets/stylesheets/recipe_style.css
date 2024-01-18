@@ -78,6 +78,15 @@ tr:nth-child(even) {
   font-weight: 600;
 }
 
+.public-container {
+  display: flex;
+  gap: 12px;
+}
+
+.public-form {
+  margin-top: 24px;
+}
+
 .shopping-list {
   width: 90%;
   margin: 0 auto;
@@ -128,4 +137,13 @@ tr:nth-child(even) {
 .food-item {
   text-align: center;
   margin-bottom: 12px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #44e635;
 }
