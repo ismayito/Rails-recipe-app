@@ -9,7 +9,7 @@ Rails.application.routes.draw do
    root "foods#index"
 
   # Defines the application routes of the rails-recipe-app 
-   resources :foods, only: [:index,:create, :destroy]
+   resources :foods, only: [:index,:create,:new, :destroy]
    resources :recipes, only: [:index, :show,:update,:destroy]
    resources  :recipe_foods
    get 'public_recipes', to: 'recipes#public_recipes'

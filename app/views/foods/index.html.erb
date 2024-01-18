@@ -1,24 +1,21 @@
 <div class='btn-container'>
-<button class='add-btn'>Add food</button> 
+<%= link_to new_food_path do %>
+  <button class='add-btn'>Add food</button>
+<% end %>
 </div>
 <table>
  <tr>
- <th>Food</th>
- <th>Measurement Unit</th>
- <th>Unit price</th>
- <th>Actions</th>
+   <th>Food</th>
+   <th>Measurement Unit</th>
+   <th>Unit price</th>
+   <th>Actions</th>
  </tr>
- <tr>
- <td>Alfreds Futterkiste</td>
- <td>Maria Anders</td>
- <td>Germany</td>
- <td><button>Delete</button></td>
- </tr>
- <tr>
- <td>Alfreds Futterkiste</td>
- <td>Maria Anders</td>
- <td>Germany</td>
- <td><button>Delete</button></td>
- </tr>
-
+ <% @foods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurement_unit %></td>
+      <td>$<%= food.price %></td>
+      <td><%= button_to "Delete", food_path(food), method: :delete, data: { turbolinks: false } %> </td>
+    </tr>
+ <% end %>
 </table>

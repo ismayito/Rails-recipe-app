@@ -1,15 +1,12 @@
+<% @recipes.each_with_index do |recipe,index|  %>
+<%= link_to recipe_path(recipe.id) do %>
 <div class='recipe-container'>
 <section class='recipe-info'>
-   <h3 class='recipe-1'>Recipe 1</h3>
-   <a  href ='#'class='recipe-btn'>Remove</a>
+   <h3 class='recipe-1'>Recipe <%= index+1 %></h3>
+   <a class='recipe-btn'><%= button_to "Remove", recipe_path(recipe), method: :delete, data: { turbolinks: false } %></a>
 </section>   
-   <p class='recipe-description'>Lorem ipsum dorem Lorem ipsum dorem Lorem ipsum dorem Lorem ipsum dorem</p>
-</div>
+   <p class='recipe-description'><%= recipe.description %></p>
+</div>  
+ <% end %>  
+<% end %>
 
-<div class='recipe-container'>
-<section class='recipe-info'>
-   <h3 class='recipe-1'>Recipe 1</h3>
-   <a  href ='#'class='recipe-btn'>Remove</a>
-</section>   
-   <p class='recipe-description'>Lorem ipsum dorem Lorem ipsum dorem Lorem ipsum dorem Lorem ipsum dorem</p>
-</div>

@@ -1,7 +1,7 @@
 <h1 class='shopping-title'>Shopping list</h1>
 <div class='shopping-totals'> 
-  <p class='shopping-values'>Amount of food Items to buy: 3</p>
-  <p class='shopping-values'>Total value of food needed: $334</p>
+  <p class='shopping-values'>Amount of food Items to buy: <%= @missing_food_items.size %></p>
+  <p class='shopping-values'>Total value of food needed: $ <%= @total_price %></p>
 </div>
 <div class='shopping-table'>
 <table>
@@ -10,15 +10,12 @@
  <th>Qunatity</th>
  <th>Price</th>
  </tr>
+ <% @missing_food_items.each do |food| %>
  <tr>
- <td>Alfreds Futterkiste</td>
- <td>Maria Anders</td>
- <td>Germany</td>
+ <td><%= food.name %></td>
+ <td><%= food.quantity %></td>
+ <td>$<%= food.price %></td>
  </tr>
- <tr>
- <td>Alfreds Futterkiste</td>
- <td>Maria Anders</td>
- <td>Germany</td>
- </tr>
+ <% end %>
 </table>
 </div>
