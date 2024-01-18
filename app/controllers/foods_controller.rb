@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   # index action for fetching all the food items
   def index
-  @foods = Food.all
+    @foods = Food.all
   end
 
   # destroy action for deleting a single food item  def destroy
@@ -27,11 +27,11 @@ class FoodsController < ApplicationController
       flash.now[:error] = 'Food  not saved, check your Entries'
       render :new
     end
-  
   end
 
-  private 
-  def food_params 
-    params.require(:food).permit(:name, :measurement_unit,:price,:quantity)
+  private
+
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end
