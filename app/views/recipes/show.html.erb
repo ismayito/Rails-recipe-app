@@ -1,15 +1,39 @@
 <h1 class='title'> Recipe 2</h1>
 <div class='recipe-detail-container'>
- <section class='preparation'>
+ <div class='preparation'>
    <p class='preparation-info'>Preparation time: <%= @recipe.preparation_time.strftime('%H:%M') %> hours </p>
    <p class='preparation-info'>Cooking time: <%= @recipe.cooking_time.strftime('%H:%M') %>hours</p>
    <p class='preparation-info'>Steps go here...</p>
    <button class='add-btn'>Generate shopping list</button> 
- </section>
- <section class='public-info'>
-  <p class='public-title'>Public</p>
-  <button class='add-btn'>Add ingredient</button> 
- </section>
+ </div>
+ <div class='public-info'>
+ <div class='public-container'>
+ <div >
+  <p class='public-title'>
+  Public
+  </p>
+  </div>
+  <div class='public-form'>
+   <%= form_with(model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch, local: true) do |form| %>
+    <button type="submit" class="icon-button">
+      <% if @recipe.public? %>
+        <%= icon('fas', 'toggle-on', class: 'fa-2x') %>
+      <% else %>
+        <%= icon('fas', 'toggle-off', class: 'fa-2x') %>
+      <% end %>
+    </button>
+  <% end %>
+  </div>
+  
+  </div>
+
+  
+  <% if can?(:create, @recipe) %>
+  <%= link_to new_food_path do %>
+    <button class='add-btn'>Add food</button>
+  <% end %>
+ <% end %>  
+ </div>
 </div>
 
 <table>
