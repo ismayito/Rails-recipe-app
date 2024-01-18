@@ -1,4 +1,8 @@
 class FoodsController < ApplicationController
+  # require login before accesing the application
+  before_action :authenticate_user!, only: [:index]
+  before_action :require_login, only: [:index]
+
   # index action for fetching all the food items
   def index
     @foods = Food.all
@@ -18,7 +22,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    @food.user = User.first
+    @food.user = current_user
     if @food.save
       flash[:success] = 'Food added successfully'
       redirect_to foods_path
@@ -33,5 +37,9 @@ class FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+  end
+
+  def require_login
+    redirect_to foods_path unless user_signed_in?
   end
 end

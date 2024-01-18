@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
 
   def general_shopping_list
     # Retrieve the current first user
-    @user = User.first
+    @user = current_user
 
     # Find all recipes of the logged-in user
     @user_recipes = @user.recipes.includes(recipe_foods: :food)
