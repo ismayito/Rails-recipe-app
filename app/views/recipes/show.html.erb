@@ -1,8 +1,8 @@
 <h1 class='title'> Recipe 2</h1>
 <div class='recipe-detail-container'>
  <section class='preparation'>
-   <p class='preparation-info'>Preparation time: 1hr</p>
-   <p class='preparation-info'>Cooking time: 2hr</p>
+   <p class='preparation-info'>Preparation time: <%= @recipe.preparation_time.strftime('%H:%M') %> hours </p>
+   <p class='preparation-info'>Cooking time: <%= @recipe.cooking_time.strftime('%H:%M') %>hours</p>
    <p class='preparation-info'>Steps go here...</p>
    <button class='add-btn'>Generate shopping list</button> 
  </section>
@@ -19,23 +19,16 @@
  <th>Value</th>
  <th>Actions</th>
  </tr>
+ <% @recipe_foods.each do |recipe_food| %>
  <tr>
- <td>Alfreds Futterkiste</td>
- <td>Maria Anders</td>
- <td>Germany</td>
+ <td><%= recipe_food.food.name if recipe_food.food %></td>
+ <td><%= recipe_food.food.quantity if recipe_food.food %> </td>
+ <td><%= recipe_food.food.price if recipe_food.food %></td>
  <td>
   <button>Modify</button>
   <button>Remove</button>
  </td>
  </tr>
+ <% end %>
  <tr>
- <td>Alfreds Futterkiste</td>
- <td>Maria Anders</td>
- <td>Germany</td>
- <td>
- <button>Modify</button>
- <button>Remove</button>
- </td>
- </tr>
-
 </table>
