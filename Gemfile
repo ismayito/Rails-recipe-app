@@ -57,6 +57,9 @@ gem 'rails-controller-testing'
 # Add the font awesome gem for using font awesome icons in the project
 gem 'font-awesome-sass', '~> 6.5.1'
 
+# Add gem for webdrivers
+gem 'webdrivers'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
