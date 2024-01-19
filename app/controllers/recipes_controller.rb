@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
     @recipe.update(public: !@recipe.public)
     respond_to do |format|
       format.html { redirect_back(fallback_location: recipe_path(@recipe)) }
-      format.js # Assuming you have a toggle_public.js.erb file for AJAX response
     end
   end
 
@@ -53,6 +52,4 @@ class RecipesController < ApplicationController
     @total_quantity = @missing_food_items.sum(&:quantity)
     @total_price = @missing_food_items.sum(&:price)
   end
-
-  def create; end
 end
