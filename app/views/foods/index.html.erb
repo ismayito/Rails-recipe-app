@@ -1,3 +1,11 @@
+<nav class='nav-menu'>
+    <%= link_to 'Recipes',recipes_path  %>
+    <div class='right'>
+     <%= link_to 'Public Recipes',public_recipes_path %>
+    <%= link_to 'Shopping List' ,general_shopping_list_path %>
+    </div>
+</nav>
+
 <div class='btn-container'>
 <%= link_to new_food_path do %>
   <button class='add-btn'>Add food</button>
