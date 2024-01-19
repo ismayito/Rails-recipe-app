@@ -59,6 +59,16 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   # devise helper methods for authentication
   config.include Devise::Test::IntegrationHelpers, type: :request
+
+  # cancancan helper methods for authorization
+  config.include Warden::Test::Helpers, type: :system
+  config.before(:each, type: :system) do
+    driven_by(:rack_test)
+  end
+  config.before(:each, type: :system, js: true) do
+    driven_by(:selenium_chrome_headless)
+  end
+
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
