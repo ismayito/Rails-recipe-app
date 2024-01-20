@@ -1,5 +1,5 @@
 <h1 class='food-item'>Add new Recipe</h1>
-<%= form_with(model:@food,url: foods_path, method: :post,local: true,class:'food-form') do |form| %>
+<%= form_with(model:@recipe,url: recipes_path, method: :post,local: true,class:'food-form') do |form| %>
     <%= form.label:name, "Recipe name:", class:"form-label"%>
     <%= form.text_field:name %>
     <%= form.label:preparation_time, 'Preparation time' ,class:"form-description" %>
@@ -8,7 +8,7 @@
     <%= form.text_field:cooking_time %>
     <%= form.label:description, 'Description' ,class:"form-description" %>
     <%= form.text_field:description %>
-    <%= form.label:description, 'Description' ,class:"form-description" %>
-    <%= form.text_field:description %>
-    <%= form.submit 'Add food' ,class:"form-submit" %>
+    <%= form.label:public, 'Public' ,class:"form-description" %>
+    <%= form.text_field:public%>
+    <%= form.submit 'Create Recipe' ,class:"form-submit" %>
 <% end %>
