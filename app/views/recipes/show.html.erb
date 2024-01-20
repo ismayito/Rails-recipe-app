@@ -4,7 +4,7 @@
    <p class='preparation-info'>Preparation time: <%= @recipe.preparation_time.strftime('%H:%M') %> hours </p>
    <p class='preparation-info'>Cooking time: <%= @recipe.cooking_time.strftime('%H:%M') %>hours</p>
    <p class='preparation-info'>Steps go here...</p>
-   <button class='add-btn'>Generate shopping list</button> 
+   <%= link_to 'Generate shoping list' ,general_shopping_list_path, class:'add-btn' %>
  </div>
  <div class='public-info'>
  <div class='public-container'>
@@ -52,7 +52,7 @@
  <td><%= recipe_food.food.quantity if recipe_food.food %> </td>
  <td>$<%= recipe_food.food.price if recipe_food.food %></td>
  <td>
-  <button>Modify</button>
+ <%= link_to 'Edit', edit_recipe_food_path(recipe_food), method: :get %>
   <%= button_to 'Delete', recipe_food_path(recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
  </td>
  </tr>
