@@ -1,0 +1,178 @@
+
+body {
+  width: 95%;
+  margin: 24px auto;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: end;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
+  padding: 16px;
+}
+
+.nav-menu,
+a:hover {
+  text-decoration: none;
+}
+
+.right {
+  display: flex;
+  gap: 12px;
+}
+
+.add-btn {
+  box-shadow: 6px 4px #000;
+  font-size: 24px;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 64px;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #6e6969;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+.recipe-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  margin-bottom: 24px;
+  border: 2px solid #000;
+  padding: 24px;
+}
+
+.recipe-btn {
+  padding-left: 6px;
+}
+
+.title {
+  text-align: center;
+}
+
+.recipe-detail-container {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  border-bottom: 2px solid #000;
+  padding: 14px;
+  margin-bottom: 36px;
+}
+
+.preparation-info {
+  font-size: large;
+  font-weight: 600;
+}
+
+.public-info,
+.preparation {
+  width: 100%;
+}
+
+.public-title {
+  margin-bottom: 100px;
+  font-size: large;
+  font-weight: 600;
+}
+
+.public-container {
+  display: flex;
+  gap: 12px;
+}
+
+.public-form {
+  margin-top: 24px;
+}
+
+.shopping-list {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.public-recipes-title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.public-total {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-info,
+.public-total {
+  width: 50%;
+}
+
+.recipe-description {
+  margin-bottom: 0;
+}
+
+.shopping-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.shopping-totals {
+  justify-content: center;
+  display: flex;
+  gap: 36px;
+}
+
+.shopping-values {
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.shopping-table {
+  display: flex;
+  width: 40%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.food-item {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #44e635;
+}
+
+.food-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  border: 2px solid rgb(0, 255, 94);
+  padding: 48px;
+  gap: 6px;
+}

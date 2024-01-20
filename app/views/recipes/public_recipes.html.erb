@@ -1,0 +1,20 @@
+<div class='shopping-list'>
+ <h1 class='public-recipes-title'>Public Recipes</h1>
+ <% @public_recipes.each do |public_recipe| %>
+   <% if can? :delete, public_recipe %>
+      <%= link_to "Delete", public_recipes_path, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>  
+<%= link_to recipe_path(public_recipe) do %>   
+<div class='recipe-container'>
+<section class='recipe-info'>
+   <h3 class='recipe-1'><%= public_recipe.name %></h3>
+   <p class='recipe-btn'>By:<%= public_recipe.user.name %></p>
+</section> 
+<section class='public-total'>   
+   <p class='recipe-description'>Total food Items: <%= public_recipe.total_quantity %></p>
+   <p class='recipe-description'>Total price: $<%= public_recipe.total_price %></p>
+</section> 
+</div>
+<% end %>
+<% end %>
+
