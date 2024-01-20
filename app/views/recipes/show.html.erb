@@ -26,8 +26,11 @@
   </div>
   
   </div>
-
   
+ 
+  <%= link_to new_recipe_food_path(recipe_id: @recipe.id) do %>
+   <button class='add-btn'>Add ingredient</button> 
+  <% end %>
   <% if can?(:create, @recipe) %>
   <%= link_to new_food_path do %>
     <button class='add-btn'>Add food</button>
@@ -47,10 +50,10 @@
  <tr>
  <td><%= recipe_food.food.name if recipe_food.food %></td>
  <td><%= recipe_food.food.quantity if recipe_food.food %> </td>
- <td><%= recipe_food.food.price if recipe_food.food %></td>
+ <td>$<%= recipe_food.food.price if recipe_food.food %></td>
  <td>
   <button>Modify</button>
-  <button>Remove</button>
+  <%= button_to 'Delete', recipe_food_path(recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
  </td>
  </tr>
  <% end %>
