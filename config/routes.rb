@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # Defines the application routes of the rails-recipe-app 
    resources :foods, only: [:index,:create,:new, :destroy]
-   resources :recipes, only: [:index, :show,:update,:destroy ,:new] do
+   resources :recipes, only: [:index, :show,:update,:destroy ,:new ,:create] do
     member do
       patch 'toggle_public'
     end

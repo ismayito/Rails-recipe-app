@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
 
   # index action for fetching all the food items
   def index
-    @foods = Food.all
+    @foods = current_user.foods
   end
 
   # destroy action for deleting a single food item  def destroy

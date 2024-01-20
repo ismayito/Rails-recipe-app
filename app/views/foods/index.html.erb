@@ -3,8 +3,12 @@
     <div class='right'>
      <%= link_to 'Public Recipes',public_recipes_path %>
     <%= link_to 'Shopping List' ,general_shopping_list_path %>
+    <li class="nav-item">
+  <%= link_to "Sign out", destroy_user_session_path, class: 'nav-link', data: { turbo_method: :delete } %>
+ </li>
     </div>
 </nav>
+
 
 <div class='btn-container'>
 <%= link_to new_food_path do %>

@@ -3,6 +3,23 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+
+  def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    if @recipe.save
+      flash[:success] = 'Recipe created successfully'
+      redirect_to recipes_path
+    else
+      puts "Errors: #{@recipe.errors.full_messages}" # Add this line for debugging
+      flash.now[:error] = 'Recipe not created, check your Entries'
+      render :new
+    end
+  end
+
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)
@@ -51,5 +68,11 @@ class RecipesController < ApplicationController
     # Calculate total quantity and total price of missing food items
     @total_quantity = @missing_food_items.sum(&:quantity)
     @total_price = @missing_food_items.sum(&:price)
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end

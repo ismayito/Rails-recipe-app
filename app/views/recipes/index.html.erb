@@ -1,3 +1,6 @@
+<%= link_to new_recipe_path do %>
+   <button class='add-btn'>Add Recipe</button>
+ <% end %>
 <% @recipes.each_with_index do |recipe,index|  %>
 <%= link_to recipe_path(recipe.id) do %>
 <div class='recipe-container'>

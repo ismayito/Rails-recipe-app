@@ -54,6 +54,7 @@ tr:nth-child(even) {
 }
 
 .recipe-container {
+  margin-top: 24px;
   display: flex;
   flex-direction: row;
   gap: 48px;
@@ -163,4 +164,15 @@ tr:nth-child(even) {
   padding: 0;
   font-size: 16px; /* Adjust the font size as needed */
   color: #44e635;
+}
+
+.food-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  border: 2px solid rgb(0, 255, 94);
+  padding: 48px;
+  gap: 6px;
 }
